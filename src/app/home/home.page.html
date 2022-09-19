@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Our Catalog</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/add" [routerLink]="['/add']">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="person-add-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item [routerLink]="['/courses', course.id]" *ngFor="let course of allCourses">
+      <ion-avatar>
+        <img [src]="course.image" />
+      </ion-avatar>
+      {{ course.title }}
+    </ion-item>
+  </ion-list>
+
+</ion-content>
