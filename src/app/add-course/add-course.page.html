@@ -1,9 +1,37 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>add-course</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title>Add a Course</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="container">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <label for="name">Title</label>
+      <input #inputTitle="ngModel" required ngModel type="text" class="form-control" id="name" name="title">
+
+      <div *ngIf="inputTitle.invalid && inputTitle.touched" class="alert alert-danger">Ce champ est obligatoire</div>
+      <label for="author">Author</label>
+      <input required ngModel name="author" type="text" class="form-control" id="author">
+
+      <label for="image">Image</label>
+      <input required ngModel name="image" type="url" class="form-control" id="image">
+
+      <label for="Keywords">Keywords</label>
+      <input required ngModel name="keywords" type="text" class="form-control" id="Keywords">
+
+      <ion-button [disabled]="f.invalid" expand="block" type="submit">Add</ion-button>
+      <!-- <pre>
+        {{ f.value | json }}
+      </pre> -->
+    </form>
+  </div>
+
+
+
 
 </ion-content>

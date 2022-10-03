@@ -33,6 +33,12 @@ export class ListCoursesService {
 
   constructor() {}
 
+  addCourse(newCourse) {
+    //console.log(newCourse);
+    newCourse.id = this.tabCourses[this.tabCourses.length - 1].id + 1;
+    this.tabCourses.push(newCourse);
+  }
+
   getCourseById(id) {
     return this.tabCourses.find((c) => c.id == id);
   }
